@@ -1,0 +1,59 @@
+body {
+	margin: 0 auto;
+	font-family: 'Roboto', sans-serif;
+}
+
+.list{
+	width: 500px;
+	height: 600px;
+	background-color: red;
+	border: solid 2px;
+	margin: 0 auto;
+}
+
+h1{
+	margin-left: 20%;
+}
+
+.textfield{
+	width: 60%;
+	margin-left: 20%;
+	border: solid 2px;
+}
+
+input{
+	padding: 10px;
+	border-radius: 4px;
+}
+
+.button{
+	margin-left: 20px;
+}
+
+.todolist{
+	border: solid 2px;
+	width: 480px;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 6px;
+}
+
+ul{
+	width: 80%;
+	color: red;
+}
+
+.element{
+	display: inline-block;
+}
+
+.element,li{
+	word-wrap: break-word;
+	width: 80%;
+}
+
+.material-icons{
+	color: #000;
+	padding-right: 20px;
+
+}
