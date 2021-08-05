@@ -4,8 +4,14 @@ function onButtonClick() {
     if(task.length === 0){
         alert("Полето е задължително!");
     }else{
+        var node = document.createElement("li");
+        var textnode = document.createTextNode(task);
+        node.appendChild(textnode);
+        
+        
         var itemsContainers = document.getElementById("listItems");
-        itemsContainers.insertAdjacentHTML("beforeend", '<li>'+ task +'</li>');
+        itemsContainers.appendChild(node);
+        
         document.getElementById("newTask").value = "";
     }
 }
