@@ -1,5 +1,5 @@
 function onButtonClick() {
-    var task = document.getElementById("newTask").value;
+    var task = document.getElementById("newTask").value.trim();
     
     if(task.length === 0){
         alert("Полето е задължително!");
