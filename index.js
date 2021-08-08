@@ -1,27 +1,33 @@
 function onDeleteClick(deleteIcon) {
-    var itemNode = deleteIcon.parentNode.parentNode;
-    itemNode.parentNode.removeChild(itemNode);
+    var taskText = deleteIcon.parentNode.getElementsByClassName("item__text")[0].innerText;
+    if (confirm("Сигурни ли сте, че искате да задачата:\r\n\r\n" + taskText)) {
+
+        var itemNode = deleteIcon.parentNode.parentNode;
+        itemNode.parentNode.removeChild(itemNode);
+    }
 }
 
-function onButtonClick() {
+function onFormSubmit(event) {
+    event.preventDefault();
     var task = document.getElementById("newTask").value.trim();
-    
-    if(task.length === 0){
+
+    if (task.length === 0) {
         alert("Полето е задължително!");
-    }else{
+    } else {
         var node = document.createElement("li");
 
-        
+
         node.innerHTML = `
             <span class="item">
                 <span class="item__text">${task}</span>
                 <span class="item__delete material-icons" onclick="onDeleteClick(this);">delete_forever</span>
             </span>
         `;
-        
+
         var itemsContainers = document.getElementById("listItems");
         itemsContainers.appendChild(node);
-        
+
         document.getElementById("newTask").value = "";
+        document.getElementById("newTask").focus();
     }
 }

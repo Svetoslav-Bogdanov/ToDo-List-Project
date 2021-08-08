@@ -21,10 +21,11 @@
             <h1>My To do list</h1>
 
             <div class="todolist">
-                <form>
+                <form onsubmit="onFormSubmit(event)">
                     <div class="textfield">
-                        <input type="text" placeholder="Нова задача" id="newTask">
-                        <button type="button" class="button" onclick="onButtonClick()">Добави</button>
+                        <input type="text" placeholder="Нова задача" id="newTask" autofocus>
+                        <button type="submit" class="button">Добави</button>
+
                     </div>
                 </form>
 
