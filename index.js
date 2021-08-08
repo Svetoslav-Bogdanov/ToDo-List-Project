@@ -12,7 +12,7 @@ function filter(text){
 }
 
 function isInvalid(text){
-    return text.length === 0
+    return text.length === 0;
 }
 
 function createNewItem(text){
