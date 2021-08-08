@@ -7,27 +7,48 @@ function onDeleteClick(deleteIcon) {
     }
 }
 
+function filter(text){
+    return text.trim();
+}
+
+function isInvalid(text){
+    return text.length === 0
+}
+
+function createNewItem(text){
+    var node = document.createElement("li");
+
+    node.innerHTML = `
+        <span class="item">
+            <span class="item__text">${text}</span>
+            <span class="item__delete material-icons" onclick="onDeleteClick(this);">delete_forever</span>
+        </span>
+    `;
+
+    return node;
+}
+
+function addItemToList(node){
+    var itemsContainers = document.getElementById("listItems");
+    itemsContainers.appendChild(node);
+}
+
+function resetForm(){
+    document.getElementById("newTask").value = "";
+    document.getElementById("newTask").focus();
+}
+
 function onFormSubmit(event) {
     event.preventDefault();
-    var task = document.getElementById("newTask").value.trim();
+    var task = document.getElementById("newTask").value;
+    task = filter(task);
 
-    if (task.length === 0) {
+    if (isInvalid(task)) {
         alert("Полето е задължително!");
     } else {
-        var node = document.createElement("li");
-
-
-        node.innerHTML = `
-            <span class="item">
-                <span class="item__text">${task}</span>
-                <span class="item__delete material-icons" onclick="onDeleteClick(this);">delete_forever</span>
-            </span>
-        `;
-
-        var itemsContainers = document.getElementById("listItems");
-        itemsContainers.appendChild(node);
-
-        document.getElementById("newTask").value = "";
-        document.getElementById("newTask").focus();
+        var node = createNewItem(task);
+        
+        addItemToList(node);
+        resetForm();
     }
 }
